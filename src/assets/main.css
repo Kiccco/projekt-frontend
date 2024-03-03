@@ -1,18 +1,23 @@
 @import './base.css';
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
+#app {  
   font-weight: normal;
+  display: flex;
 }
 
+
+.setting-obj:hover {
+  background-color: rgb(116, 116, 116);
+}
+
+.setting-obj {
+  padding: 2px
+}
 
 
 a {
   text-decoration: none;
-  color: rgb(130, 136, 134);
+  color: rgb(154, 160, 158);
   transition: 0.4s;
 }
 
@@ -23,17 +28,3 @@ a {
 }
 
 
-@media (min-width: 1024px) {
-
-
-  #app {
-
-  }
-}
-
-@media screen {
-  body {
-    display: flex;
-    place-items: center;
-  }
-}

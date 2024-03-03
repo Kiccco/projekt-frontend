@@ -1,9 +1,9 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+
 </script>
 
 <template>
-
 
   <RouterView />
 </template>
@@ -15,9 +15,19 @@ import { RouterLink, RouterView } from 'vue-router'
         ...mapGetters(['getUser']),
       },
 
+      methods: {
+      },
+      
+      mounted() {
+   
+
+      },
+
       created() {
         if(this.getUser == null) {
           this.$router.push('/login');
+        } else {
+          this.$router.push("/home")
         }
       }
 
@@ -39,5 +49,18 @@ nav a {
   padding: 0 1rem;
   border-left: 1px solid var(--color-border);
 }
+
+#head {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgb(82, 41, 122);
+  width: 100%;
+  user-select: none;
+  -webkit-app-region: drag;
+
+
+}
+
 
 </style>
