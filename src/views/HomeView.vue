@@ -1,68 +1,47 @@
 <script setup>
+import FriendsComponent from '../components/FriendsComponent.vue'
+import ChatComponent from '../components/ChatComponent.vue'
+import TopComponent from '../components/TopComponent.vue'
 
 </script>
 
 <template>
-<div id="sidebar">
-    <div id="user">
 
+    <TopComponent />
+    <div class="row">
         
-        <div class="placehold">
-            <div >User: {{ user }}</div>
-            <div>Status: Online</div>
-        </div>
-        <div class="setting">
-            <div class="setting-obj"><font-awesome-icon :icon="['fas', 'gear']" /></div>
-            <div class="setting-obj" @click="odjava"><font-awesome-icon :icon="['fas', 'arrow-right-from-bracket']" /></div>
-        </div>
-        
+            <div class="col-5">
+                <FriendsComponent />
+            </div>
+            
+            <div class="col" style="height:85vh">
+                <ChatComponent />
+            </div>
+          
+
+ 
+
     </div>
-    
-    <div class="search">
-        <input type="text" class="form-control" placeholder="išci prijatelja">
-    </div>
-    <div id="friendlist">
-        <div class="friend">
-            <div class="icon"><font-awesome-icon :icon="['fas', 'user']" /></div>
-            <div class="name">
-                <div>Test</div>
-                <div class="message">test mesg</div>
-            </div>
 
-            <div class="last-seen">12:00</div>
-        </div>
-        <div class="friend">
-            <div class="icon"><font-awesome-icon :icon="['fas', 'user']" /></div>
-            <div class="name">
-                <div>Test</div>
-                <div class="message">test mesg</div>
+    <div class="d-flex position-absolute w-100 bottom-0">
+        <div class="border-top d-flex flex-row align-items-center p-2 w-100">
+                <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle mr-1 d-block mt-1" alt="William Harris" width="40" height="40">
+                <div class="ms-2">
+                    <div class="">{{ user }}</div>
+                    <div>Online</div>
+                </div>
+                <button class="btn btn-secondary ms-auto">Nastavitve</button>
+                <button @click="odjava" class="btn btn-success ms-1">Odjava</button>
             </div>
-
-            <div class="last-seen">12:00</div>
-        </div>
-        <div class="friend">
-            <div class="icon"><font-awesome-icon :icon="['fas', 'user']" /></div>
-            <div class="name">
-                <div>Test</div>
-                <div class="message">test mesg</div>
-            </div>
-
-            <div class="last-seen">12:00</div>
-        </div>
-        <div class="friend">
-            <div class="icon"><font-awesome-icon :icon="['fas', 'user']" /></div>
-            <div class="name">
-                <div>Test</div>
-                <div class="message">test mesg</div>
-            </div>
-
-            <div class="last-seen">12:00</div>
+            <div class="border-top d-flex justify-content-center align-items-center w-100">
+                    <div class="input-group w-75"> 
+                        <input type="text" class="form-control" placeholder="Sporočilo">
+                            <button class="btn btn-success">Pošlji</button>
+                    </div>
+                    
         </div>
     </div>
-</div>
-<div >
 
-</div>
 
 
 </template>
@@ -95,86 +74,21 @@ export default {
 }
 </script>
 <style>
-    #sidebar {
-      background-color: rgb(241, 238, 238);
-      font-size: 1.9em;
-      display: inline-block;
-      position: fixed;
-     
-      height: 100%;
-      width: 250px;
-
-    }
-    #main {
-        display: inline-block;
-        width: 60%;
-        background-color: aliceblue;
-
-    }
-    #odjava {
-       cursor: pointer;
-       margin-left: auto;
+    body {
+      overflow: hidden;
     }
 
-    #friendlist {
-        border: 1px solid rgb(177, 177, 177);
-        height: 100%;
-        padding: 5px;
-    }
+   .name {
+    font-weight: bolder;
+   }
 
-    .friend {
-        border: 1px solid rgb(187, 178, 178);
-        margin: 4px;
-        border-radius: 6px;
-        display: flex;
-    }
-
-    .friend:hover {
-        cursor: pointer;
-        background-color: aliceblue;
-    }
-
-    .friend > .name {
-        display: inline-block;
-        font-size: 0.8em;
-    }
-
-    .friend .message {
-        font-size: 0.7em;
-        align-self: flex-end;
-        color: rgb(161, 156, 156);
-    }
+   .chat {
+    overflow-y: auto;
+    min-height: 300px;
+   }
 
 
-    #user {
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
 
-    }
-
-    .last-seen {
-        font-size: 0.5em;
-        color: rgb(177, 175, 175);
-        padding: 3px;
-        margin-left: auto;
-    }
-
-    .icon {
-        padding: 10px;
-    }
-
-    .placehold {
-        font-size: 0.8em;
-    }
-
-    .setting {
-        padding-right: 15px;
-    }
-
-    .setting-obj {
-        padding: 4px;
-    }
 
 
 </style>
