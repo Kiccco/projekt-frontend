@@ -10,6 +10,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <script>
   import { mapGetters } from 'vuex'
+  import router from "./router"
   export default {
       computed: { 
         ...mapGetters(['getUser']),
@@ -24,11 +25,14 @@ import { RouterLink, RouterView } from 'vue-router'
       },
 
       created() {
+        router.push("/home")
+        /*
         if(this.getUser == null) {
           this.$router.push('/login');
         } else {
           this.$router.push("/home")
         }
+        */
       }
 
   }

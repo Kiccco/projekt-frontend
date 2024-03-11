@@ -1,7 +1,7 @@
 import './assets/main.css'
 
 import { createApp } from 'vue'
-import { createStore } from 'vuex'
+import store from './store'
 import App from './App.vue'
 import router from './router'
 
@@ -24,39 +24,9 @@ library.add(faXmark, faWindowMaximize, faSquare, faWindowMinimize, faUser, faGea
 
 const app = createApp(App)
 
-const store = createStore({
-    state: {
-        user: null,
-        token: null,
-    },
-    mutations: {
-        setUser(state, user) {
-            state.user = user;
-        },
-        setToken(state, token) {
-            state.token = token;
-        }
-    },
-    getters: {
-        getUser(state) {
-            return state.user;
-        },
-
-        getToken(state) {
-            return state.token
-        }
-    },
-    actions: {
-        setUser(context, user) {
-            context.commit("setUser")
-        },
-        setToken(context) {
-            context.commit("setToken")
-        }
-    }
-})
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.use(router)
 app.use(store)
+
 
 app.mount('#app')

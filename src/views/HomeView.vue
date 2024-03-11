@@ -30,7 +30,9 @@ import TopComponent from '../components/TopComponent.vue'
                     <div class="">{{ user }}</div>
                     <div>Online</div>
                 </div>
+                
                 <button class="btn btn-secondary ms-auto">Nastavitve</button>
+                <button class="btn btn-secondary">Dodaj prijatelja</button>
                 <button @click="odjava" class="btn btn-success ms-1">Odjava</button>
             </div>
             <div class="border-top d-flex justify-content-center align-items-center w-100">
@@ -46,28 +48,34 @@ import TopComponent from '../components/TopComponent.vue'
 
 </template>
 <script>
-import { useStore } from 'vuex';
+import store from '../store';
 import router from "../router";
 export default {
 
     methods: {
-        odjava(e) {
-            localStorage.removeItem("token")
+        odjava() {
+            store.commit("setUser", null)
+            store.commit("setToken", null)
             router.push("/login")
         }
     },
 
-    setup() {
-        let store = useStore()
-        let user = store.state.user
-        return {
-            user
+    computed: {
+        user() {
+            return store.state.user
         }
     },
 
+
+    setup() {
+
+        
+        
+    },
+
     created() {
-        console.log(this.getUser)
-        if(localStorage.getItem("token") == null) {
+        console.log(store.state.user)
+        if(store.state.token == null) {
             this.$router.push("/login")
         }
     }
