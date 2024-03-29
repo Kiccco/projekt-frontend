@@ -64,13 +64,15 @@ export default {
 
                 store.commit("setToken", data.token)
                 store.commit("setUser", decoded.username)
-                
+                store.commit("setId", decoded.id)
                 console.log(store.state.user)
                 
                 router.push("/home")
                 
                 
             }).catch(async res => {
+                console.log(res)
+                console.log(this.$cookies.get('token'))
                 this.napaka = 'Napaka pri strežniku! Prosim poskusite kasneje'
             })
         }
@@ -83,7 +85,7 @@ export default {
     }
 };
 </script>
-<style>
+<style scoped>
       body {
             background: linear-gradient(to bottom right, #1E2132, #4C566A, #A3BE8C);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

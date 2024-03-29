@@ -9,6 +9,7 @@ const store = new Vuex.Store({
     state: {
         user: null,
         token: null,
+        id: null
     },
     mutations: {
         setUser(state, user) {
@@ -16,6 +17,9 @@ const store = new Vuex.Store({
         },
         setToken(state, token) {
             state.token = token;
+        },
+        setId(state, id) {
+            state.id = id;
         }
     },
     getters: {
